@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { auth } from '../services/firebaseConfig';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Auth.css';
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -13,9 +14,9 @@ const Register = () => {
     e.preventDefault();
     setError('');
     try {
-      // Intentamos crear el usuario en Firebase
+      
       await createUserWithEmailAndPassword(auth, email, password);
-      // Si sale bien, navegamos al Dashboard
+      
       navigate('/dashboard');
     } catch (err) {
       setError("Error al registrar: " + err.message);
