@@ -1,32 +1,30 @@
 import React, { useState } from 'react';
 import { auth } from '../services/firebaseConfig';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
-import '../styles/Auth.css';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate, Link } from 'react-router-dom';
+import '../styles/Auth.css'; 
 
-const Register = () => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleRegister = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
     try {
-      
-      await createUserWithEmailAndPassword(auth, email, password);
-      
-      navigate('/dashboard');
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/dashboard'); 
     } catch (err) {
-      setError("Error al registrar: " + err.message);
+      setError("Credenciales incorrectas o usuario no encontrado.");
     }
   };
 
   return (
     <div className="auth-container">
-      <h2>Registro de Usuario</h2>
-      <form onSubmit={handleRegister}>
+      <h2>Iniciar Sesión</h2>
+      <form onSubmit={handleLogin}>
         <input 
           type="email" 
           placeholder="Correo electrónico" 
@@ -36,16 +34,19 @@ const Register = () => {
         />
         <input 
           type="password" 
-          placeholder="Contraseña (mín. 6 caracteres)" 
+          placeholder="Contraseña" 
           value={password}
           onChange={(e) => setPassword(e.target.value)} 
           required 
         />
-        <button type="submit">Registrarse</button>
+        <button type="submit">Entrar</button>
       </form>
       {error && <p style={{color: 'red'}}>{error}</p>}
+      <p>
+        ¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link>
+      </p>
     </div>
   );
 };
 
-export default Register;
+export default Login;
