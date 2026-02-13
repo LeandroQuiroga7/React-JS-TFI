@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { useAuth } from './context/AuthContext';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   const { user } = useAuth(); 
@@ -17,7 +18,7 @@ function App() {
 
         <Route 
           path="/dashboard" 
-          element={user ? <h1>Dashboard (Próximamente)</h1> : <Navigate to="/login" />} 
+          element={user ? <Dashboard /> : <Navigate to="/login" />} 
         />
 
         <Route path="*" element={<Navigate to="/login" />} />
