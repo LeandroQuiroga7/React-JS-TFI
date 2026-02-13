@@ -37,3 +37,13 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.info-link {
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+.info-link:hover {
+  text-decoration: underline;
+}

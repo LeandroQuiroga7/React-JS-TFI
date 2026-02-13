@@ -9,7 +9,7 @@ import {
   updateDoc 
 } from 'firebase/firestore';
 import { signOut } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import '../styles/Dashboard.css'; 
 
 const Dashboard = () => {
@@ -77,9 +77,14 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <header className="dashboard-header">
         <h1>Panel de Productos</h1>
+        <div className="header-actions">
+         <Link to="/info" className="nav-link-docs">
+          Info
+        </Link>
         <button onClick={handleLogout} className="logout-button">
           Cerrar Sesión
         </button>
+        </div>
       </header>
 
       <section className="form-section">

@@ -45,6 +45,7 @@ const Login = () => {
       <p>
         ¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link>
       </p>
+      <Link to="/info" className="info-link">Ver info del proyecto</Link>
     </div>
   );
 };
