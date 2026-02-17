@@ -8,8 +8,9 @@ import {
   doc, 
   updateDoc 
 } from 'firebase/firestore';
-import { signOut } from 'firebase/auth';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 import '../styles/Dashboard.css'; 
 
 const Dashboard = () => {
@@ -68,29 +69,13 @@ const Dashboard = () => {
     setPrecio(prod.precio);
   };
 
-  const handleLogout = async () => {
-    await signOut(auth);
-    navigate('/login');
-  };
 
   return (
     <div className="dashboard-container">
-      <header className="dashboard-header">
-        <h1>Panel de Productos</h1>
-        <div className="header-actions">
-         <Link to="/info" className="nav-link-docs">
-          Info
-        </Link>
-        <Link to="/stats" className="nav-link-stats">
-          Stats
-        </Link>
-        <button onClick={handleLogout} className="logout-button">
-          Cerrar Sesión
-        </button>
-        </div>
-      </header>
-
+    <Header />
+    <main>
       <section className="form-section">
+        <h2>Panel de Productos</h2>
         <form onSubmit={handleSubmit} className="product-form">
           <input 
             placeholder="Nombre del producto" 
@@ -128,6 +113,8 @@ const Dashboard = () => {
           </li>
         ))}
       </ul>
+    </main>
+    <Footer />
     </div>
   );
 };

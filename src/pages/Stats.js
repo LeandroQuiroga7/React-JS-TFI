@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../services/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
-import { Link } from 'react-router-dom';
+import { Header } from '../components/Header'; 
+import { Footer } from '../components/Footer';
 import '../styles/Stats.css';
 
 const Stats = () => {
@@ -48,35 +49,31 @@ const Stats = () => {
 
   return (
     <div className="stats-container">
-      <header className="stats-header">
-        <h1>Estadísticas del Inventario</h1>
-        <Link to="/dashboard" className="back-link">Volver al Panel</Link>
-      </header>
+      <Header />
+      <main className="stats-content">
+        <h2>Estadísticas del Inventario</h2>
 
-      <div className="stats-grid">
-        
+      <div className="stats-grid">        
         <div className="stat-card">
           <h3>Total de Productos</h3>
           <p className="stat-number">{stats.totalItems}</p>
           <span>Unidades registradas</span>
         </div>
-
         
         <div className="stat-card">
           <h3>Más Económico</h3>
           <p className="stat-number">{stats.masBarato.nombre}</p>
           <span>Precio: ${stats.masBarato.precio}</span>
         </div>
-
         
         <div className="stat-card">
           <h3>Más Costoso</h3>
           <p className="stat-number">{stats.masCaro.nombre}</p>
           <span>Precio: ${stats.masCaro.precio}</span>
         </div>
-
-        
-      </div>
+        </div>
+        </main>
+      <Footer />
     </div>
   );
 };

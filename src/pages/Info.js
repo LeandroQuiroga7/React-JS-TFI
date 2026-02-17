@@ -1,5 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { Footer } from '../components/Footer';
 import '../styles/Info.css';
 
 const Info = () => {
@@ -29,6 +29,7 @@ const Info = () => {
         <h2>Estructura del Proyecto</h2>
         <pre className="folder-structure">
           {`src/
+          ├── components (Header, Footer)
           ├── context/ (AuthContext)
           ├── pages/   (Login, Register, Dashboard, Info, Stats)
           ├── services/ (Firebase Config)
@@ -50,6 +51,7 @@ const Info = () => {
         <h2>Dificultades y Soluciones</h2>
         <p>El principal desafío fue la persistencia de datos al recargar la página. Lo solucioné usando useEffect para que, cada vez que el Dashboard se carga, se dispare automáticamente una consulta a Firestore. Así, la interfaz siempre se sincroniza con la base de datos de forma inmediata y el usuario nunca pierde la información de vista.</p>
       </section>
+      <Footer />
     </div>
   );
 };
