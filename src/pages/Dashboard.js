@@ -81,6 +81,9 @@ const Dashboard = () => {
          <Link to="/info" className="nav-link-docs">
           Info
         </Link>
+        <Link to="/stats" className="nav-link-stats">
+          Stats
+        </Link>
         <button onClick={handleLogout} className="logout-button">
           Cerrar Sesión
         </button>

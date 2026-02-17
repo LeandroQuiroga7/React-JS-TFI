@@ -10,6 +10,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
 }
 
 .logout-button {
@@ -88,5 +89,20 @@
 }
 
 .nav-link-docs:hover {
+  background-color: #0056b3;
+}
+
+.nav-link-stats {
+  text-decoration: none;
+  background-color: #28a745; /* Verde para diferenciarlo del azul de Info */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+}
+
+.nav-link-stats:hover {
   background-color: #0056b3;
 }

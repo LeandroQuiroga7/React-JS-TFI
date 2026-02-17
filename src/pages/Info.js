@@ -30,7 +30,7 @@ const Info = () => {
         <pre className="folder-structure">
           {`src/
           ├── context/ (AuthContext)
-          ├── pages/   (Login, Register, Dashboard, Info)
+          ├── pages/   (Login, Register, Dashboard, Info, Stats)
           ├── services/ (Firebase Config)
           └── styles/  (Archivos .css nativos)`}
         </pre>

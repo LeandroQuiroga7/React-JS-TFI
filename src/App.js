@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Info from './pages/Info';
+import Stats from './pages/Stats';
 
 function App() {
   const { user } = useAuth(); 
@@ -16,11 +17,8 @@ function App() {
         <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <Register />} />
         <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
         <Route path="/info" element={<Info />} />
-
-        <Route 
-          path="/dashboard" 
-          element={user ? <Dashboard /> : <Navigate to="/login" />} 
-        />
+        <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login" />} />
+        <Route path="/stats" element={user ? <Stats /> : <Navigate to="/login" />} />
 
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
