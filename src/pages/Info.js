@@ -43,7 +43,7 @@ const Info = () => {
 
       <section className="info-section">
         <h2>Decisiones Técnicas</h2>
-        <p>Se optó por Componentes Controlados en los formularios para asegurar la sincronización de datos y CSS Nativo mediante archivos independientes para mantener la escalabilidad y limpieza del código sin dependencias externas.</p>
+        <p>Se optó por Componentes Controlados en los formularios para asegurar la sincronización de datos y CSS Nativo mediante archivos independientes para mantener la escalabilidad y limpieza del código sin dependencias externas. Para las métricas de la página Stats, se utilizó el método .reduce() de JavaScript. Esto permite procesar la colección de productos obtenida de Firestore en un solo paso para determinar valores extremos (mínimo y máximo) sin necesidad de realizar múltiples consultas a la base de datos, optimizando así el rendimiento de la aplicación.</p>
       </section>
 
       <section className="info-section">
